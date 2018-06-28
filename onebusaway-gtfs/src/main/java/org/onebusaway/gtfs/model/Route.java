@@ -52,6 +52,9 @@ public final class Route extends IdentityBean<AgencyAndId> {
 
   @CsvField(optional = true)
   private String textColor;
+
+  @CsvField(name="school_only", optional = true)
+  private int schoolOnly = 0;
   
   @Deprecated
   @CsvField(name="route_bikes_allowed", optional = true, defaultValue = "0")
@@ -65,7 +68,7 @@ public final class Route extends IdentityBean<AgencyAndId> {
 
   @CsvField(optional = true)
   private int sortOrder = MISSING_VALUE;
-
+  
   @CsvField(optional = true)
   private String brandingUrl;
 
@@ -86,6 +89,7 @@ public final class Route extends IdentityBean<AgencyAndId> {
     this.bikesAllowed = r.bikesAllowed;
     this.sortOrder = r.sortOrder;
     this.brandingUrl = r.brandingUrl;
+    this.schoolOnly = r.schoolOnly;
   }
 
   public AgencyAndId getId() {
@@ -203,6 +207,14 @@ public final class Route extends IdentityBean<AgencyAndId> {
 
   public void setBrandingUrl(String brandingUrl) {
     this.brandingUrl = brandingUrl;
+  }
+
+  public int getSchoolOnly() {
+    return this.schoolOnly;
+  }
+
+  public void setSchoolOnly(int schoolOnly) {
+    this.schoolOnly = schoolOnly;
   }
 
   @Override

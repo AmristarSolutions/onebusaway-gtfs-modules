@@ -133,6 +133,7 @@ public class MockGtfs {
     b.addColumnSpec("route_short_name", "$0");
     b.addColumnSpec("route_long_name", "Route $0");
     b.addColumnSpec("route_type", "3");
+    b.addColumnSpec("school_only", "0");
     b.addColumnSpecs(columns);
     putFile("routes.txt", b.build());
   }
@@ -140,8 +141,8 @@ public class MockGtfs {
   public void putDefaultRoutes() {
     putDefaultAgencies();
     putLines("routes.txt",
-        "route_id,route_short_name,route_long_name,route_type",
-        "R10,10,The Ten,3");
+        "route_id,route_short_name,route_long_name,route_type,school_only",
+        "R10,10,The Ten,3,0");
   }
 
   public void putStops(int numberOfRows, String... columns) {

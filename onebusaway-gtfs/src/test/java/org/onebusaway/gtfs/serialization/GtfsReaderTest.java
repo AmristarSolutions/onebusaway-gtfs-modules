@@ -82,9 +82,9 @@ public class GtfsReaderTest {
         "S1,Stop,47.0,-122.0,description,123,N,1,1234,http://agency.gov/stop,1,Z,America/New_York,2,9 3/4");
     gtfs.putLines(
         "routes.txt",
-        "agency_id,route_id,route_short_name,route_long_name,route_type,route_desc,route_color,route_text_color,"
+        "agency_id,route_id,school_only,route_short_name,route_long_name,route_type,route_desc,route_color,route_text_color,"
             + "route_bikes_allowed,bikes_allowed,route_url,route_sort_order",
-        "1,R1,10,The Ten,3,route desc,FF0000,0000FF,1,2,http://agency.gov/route,100");
+        "1,R1,1,10,The Ten,3,route desc,FF0000,0000FF,1,2,http://agency.gov/route,100");
     gtfs.putLines(
         "trips.txt",
         "route_id,service_id,trip_id,trip_headsign,trip_short_name,direction_id,block_id,shape_id,route_short_name,"
@@ -176,6 +176,7 @@ public class GtfsReaderTest {
     assertEquals(2, route.getBikesAllowed());
     assertEquals("http://agency.gov/route", route.getUrl());
     assertEquals(100, route.getSortOrder());
+    assertEquals(1, route.getSchoolOnly());
 
     Trip trip = dao.getTripForId(new AgencyAndId("1", "T1"));
     assertEquals(new AgencyAndId("1", "T1"), trip.getId());
