@@ -140,6 +140,10 @@ public final class Route extends IdentityBean<AgencyAndId> {
     this.type = type;
   }
 
+  public int getRouteType() {
+    return type;
+  }
+
   public String getUrl() {
     return url;
   }
